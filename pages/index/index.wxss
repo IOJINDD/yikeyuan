@@ -1,0 +1,98 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+.index {
+  background-color: #eee;
+}
+swiper-item {
+  background-color: #fff;
+}
+.videoBody {
+  margin: 20rpx;
+  width:95%;
+  background-color: #fff;
+}
+.title {
+  font-size:32rpx;
+  padding:0px 26rpx;
+  color:#272421;
+  line-height: 50rpx;
+}
+.subTitle {
+  font-size: 28rpx;
+  padding:0px 26rpx;
+  color: #999;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.time {
+  color: #272421;
+  padding:0px 26rpx;
+  margin-top: 6rpx;
+}
+.time image {
+  width: 16px;
+  height: 16px;
+}
+.time span {
+  font-size: 32rpx;
+}
+.swiper .text-center {
+  margin-top: 30rpx;
+}
+.labelDetail {
+  padding:0px 26rpx;
+  position:relative;
+  margin-bottom:20rpx;
+  margin-top:20rpx;
+}
+.labelDetail .number {
+  font-size: 30rpx;
+  color: #646464;
+}
+.labelDetail .price {
+  font-size: 28rpx;
+  color: #ff5b5b;  
+}
+.labelDetail .price em {
+  font-size: 38rpx;
+}
+.labelDetail .label {
+  display: inline-block;
+  color: #298eff;
+  border: 1px solid #94c6ff;
+  border-radius: 10rpx;
+  padding: 6rpx 12rpx;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}
+.labelDetail .buyBtn {
+    position: absolute;
+    right: 20rpx;
+    top: -20rpx;
+    background-color: #ffe433;
+    text-align: center;
+    border-radius: 0.3rem;
+    width: 200rpx;
+    height: 80rpx;
+    font-size: 30rpx;
+    line-height: 80rpx;
+}
+.placeholder {
+  font-size: 28rpx;
+}

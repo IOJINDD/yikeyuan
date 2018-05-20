@@ -1,0 +1,82 @@
+<!--pages/index/video-detail/video-detail.wxml-->
+<view class="videoDetail">
+  <swiper indicator-dots="true" autoplay="true" interval="4000" style="width: {{ windowWidth }}px; height: 250px">
+    <block wx:for="{{ itemDetail.imgUrls }}">
+      <swiper-item>
+        <image src="{{ item }}" style="width: {{ windowWidth }}px" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="lesson_desc">
+    <p class="tit">
+      {{ itemDetail.title }}
+    </p>
+    <view class="other">
+      <view class="price">
+        <span class="pri">￥{{ itemDetail.itemPrice / 100 }}</span>
+        <span>起</span>
+      </view>
+      <p class="two" wx:for="{{ itemDetail.tagList }}">{{ item }}</p>
+    </view>
+  </view>
+  <view class="discount">
+   <view class="num_people">
+      <view class="pics" wx:for="{{ itemDetail.avatarUrls }}">
+        <image src="{{ item }}" wx:if="{{ index < 9 }}"/>
+      </view>
+      <view class="more_people">
+        <span>{{ itemDetail.buyerCount }}人参加</span>
+      </view>
+    </view> 
+  </view>
+  <view>
+    <p class="desc">{{ itemDetail.content }}</p>
+  </view>
+  <view class="bottom" wx:if="{{ itemDetail.actFk && itemDetail.itemPrice != 0 }}">
+    <p class="aloneBuy" bindtap="goAloneBuy">
+      <span>￥ {{ itemDetail.itemPrice / 100 }}</span>
+      <span>单独购</span>
+    </p>
+    <p class="moreBuy" bindtap="goMoreBuy">
+      <span>￥ {{ itemDetail.fixedPrice / 100 }}</span>
+      <span>{{ itemDetail.actTag }}</span>
+    </p>
+  </view>
+
+  <view class="bottom" wx:if="{{ !itemDetail.actFk && itemDetail.itemPrice != 0 }}">
+    <p class="goBuy" bindtap="goAloneBuy">
+       <span>￥ {{ itemDetail.itemPrice / 100 }}</span>
+      <span>立即购买</span> 
+    </p>
+  </view>
+
+  <view class="bottom" wx:if="{{ itemDetail.itemPrice == 0 }}">
+    <p class="goCollection" bindtap="goCollection" hidden="{{ itemDetail.needReBuy }}">
+      <span>立即收藏</span> 
+    </p>
+    <p class="goCollection"  hidden="{{ !itemDetail.needReBuy }}">
+      <span>已收藏</span> 
+    </p>
+  </view>
+
+
+
+ <!-- 弹出框 -->
+  <modal class="modal" hidden="{{modalFlag}}" title="绑定手机号" bindconfirm="modalOk" bindcancel="modalNo" confirmText="确定" cancel-text="取消">
+    <view class="dew">
+      <view url="./my-order/my-order" class="weui-cell">
+        <view class="weui-cell__hd">
+          <image src="{{ phoneIcon }}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+        </view>
+        <input placeholder="请输入手机号" type="number" bindinput="inputPhone" value="{{ phone }}"/>
+      </view>
+      <view url="./my-order/my-order" class="weui-cell">
+        <view class="weui-cell__hd">
+          <image src="{{ codeIcon }}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+        </view>
+        <input placeholder="请输入验证码" type="number" bindinput="inputCode" value="{{ code }}" style="width: 150px"/>
+        <span bindtap="getCode">{{ hintMessage }}</span>
+      </view>
+    </view>
+  </modal>
+</view>

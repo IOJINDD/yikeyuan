@@ -1,0 +1,260 @@
+/* pages/index/video-detail/video-detail.wxss */
+
+.bottom {
+  position: fixed;
+  bottom: 0px;
+  height: 60px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.videoDetail {
+  min-height: 100%;
+  background: #fff;
+}
+
+.lesson_desc {
+  padding: 0rpx 30rpx;
+  background: #fff;
+  padding-bottom: 30rpx;
+}
+
+.lesson_desc .tit {
+  line-height: 50rpx;
+  font-size: 34rpx;
+  color: #333;
+  font-weight: bolder;
+  padding-top: 10rpx;
+  margin-bottom: 10px;
+}
+
+.lesson_desc .desc {
+  line-height: 40rpx;
+  color: #999;
+  font-size: 28rpx;
+  padding: 15rpx 0;
+}
+
+.lesson_desc .other {
+  height: 40rpx;
+}
+
+.lesson_desc .other .price {
+  float: left;
+  color: #999;
+  font-size: 30rpx;
+  padding-right: 40rpx;
+}
+
+.lesson_desc .other .price .pri {
+  height: 50rpx;
+  line-height: 14px;
+  font-size: 40rpx;
+  color: #f83434;
+  font-weight: bolder;
+  padding-right: 20rpx;
+}
+
+.lesson_desc .other p {
+  float: left;
+  border: 1rpx solid #d5d5d5;
+  border-radius: 24rpx;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #666;
+  padding: 0rpx 20rpx;
+  margin-right: 20rpx;
+}
+
+.discount {
+  margin-top: 0.133333rem;
+  background: #fff;
+}
+
+.discount p {
+  height: 100rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+  background: #fff;
+  line-height: 100rpx;
+}
+
+.discount p image {
+  float: left;
+  margin: 24rpx 30rpx 0;
+}
+
+.discount .fir_time .timeDetail {
+  float: left;
+  height: 1.173333rem;
+  max-width: 7.6rem;
+  white-space: nowrap;
+}
+
+.discount p span {
+  font-size: 32rpx;
+  color: #333;
+  float: left;
+}
+
+.discount p .firstPlay {
+  border: 1rpx solid #1aa6fc;
+  margin-left: 40rpx;
+  color: #1aa6fc;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+  padding: 0px 20rpx;
+  border-radius: 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+
+.discount .num_people {
+  height: 80rpx;
+  position: relative;
+  padding-left: 20rpx;
+}
+
+.discount .num_people .pics {
+  float: left;
+  padding: 0.266667rem 0 0 0.4rem;
+}
+
+.discount .num_people .pics image {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 15rpx;
+  margin-top: 10rpx;
+}
+
+.discount .num_people .more_people {
+  position: absolute;
+  right: 20rpx;
+  height: 100%;
+  line-height: 83rpx;
+  font-size: 30rpx;
+  color: #666;
+  padding-right: 10rpx;
+}
+
+.aloneBuy {
+  left: 2%;
+  width: 47%;
+  height: 100rpx;
+  border-radius: 10rpx;
+  position: absolute;
+  top: 10rpx;
+  text-align: center;
+  border: 0.02rem solid #d5d5d5;
+}
+
+.aloneBuy span, .moreBuy span {
+  position: absolute;
+  bottom: 0.16rem;
+  left: 0;
+  color: #333;
+  width: 100%;
+}
+
+.aloneBuy span:first-child {
+  font-size: 32rpx;
+  font-weight: bolder;
+  top: 15rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.aloneBuy span:nth-child(2) {
+  font-size: 30rpx;
+  top: 60rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+.moreBuy {
+  border: none;
+  background: #ffe433;
+  height: 100rpx;
+  width: 47%;
+  left: 51%;
+  border-radius: 10rpx;
+  position: absolute;
+  top: 10rpx;
+  text-align: center;
+}
+.goBuy {
+  border:none;
+  background:#ffe433;
+  height:100rpx;
+  width:98%;
+  left:1%;
+  border-radius:10rpx;
+  position:absolute;
+  top:10rpx;
+  line-height: 100rpx;
+  text-align:center;
+}
+.moreBuy span:first-child {
+  font-size: 32rpx;
+  font-weight: bolder;
+  top: 15rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+.moreBuy span:nth-child(2) {
+  font-size: 30rpx;
+  top: 60rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+.videoDetail .weui-cell {
+  padding: 30rpx 0px;
+}
+
+.goBuy span {
+  position: absolute;
+  bottom: 0.16rem;
+  left: 0;
+  color: #333;
+  width: 100%;
+}
+
+.goBuy span:first-child {
+  font-size: 32rpx;
+  font-weight: bolder;
+  top: 15rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.goBuy span:nth-child(2) {
+  font-size: 30rpx;
+  top: 60rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+.goCollection {
+  border:none;
+  background:#ffe433;
+  height:100rpx;
+  width:98%;
+  left:1%;
+  border-radius:10rpx;
+  position:absolute;
+  top:10rpx;
+  line-height: 100rpx;
+  text-align:center;
+}
+.goCollection span {
+  font-size:32rpx;
+  font-weight:bolder;
+  top:0;
+}
+.desc {
+  background-color:#fff;
+  font-size:30rpx;
+  color:#999;
+  padding:2px 20px;
+  text-indent:2em;
+  font-weight:400;
+}

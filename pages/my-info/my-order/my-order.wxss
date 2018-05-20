@@ -1,0 +1,46 @@
+/* pages/my-info/my-order/my-order.wxss */
+page,
+.page,
+.page__bd{
+    height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+.weui-tab__content{
+    teweui-tab__contentxt-align: center;
+}
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+.title {
+  font-size: 28rpx;
+}
+.price {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #000;
+}
+.order_msg {
+  font-size: 28rpx;
+  border-top: 1rpx solid #fafafa;
+  margin: 20rpx 25rpx; 
+}
+.order_body {
+  margin-bottom: 35rpx;
+  background-color: #fff; 
+  padding-top: 20rpx;
+}
+.weui-tab__panel {
+   background-color: #efeff4; 
+}
+.weui-navbar {
+  background-color: #fff;
+}

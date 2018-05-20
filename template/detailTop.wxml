@@ -1,0 +1,18 @@
+<wxs module="dateFr" src="../common/filter/statusFr.wxs"></wxs>
+<template name="detailTop">
+  <view class="detail_top">
+    <view class="detail_title">
+      {{ detailData.title }}
+    </view>
+    <view>
+    <span class="com_labelStyle">
+      {{ detailData.type }}
+    </span>
+    </view>
+      <view>
+    <span class="com_list_time">
+      {{ dateFr.getDate(detailData.createTime) }}发布
+    </span>
+    </view>
+  </view>
+</template>

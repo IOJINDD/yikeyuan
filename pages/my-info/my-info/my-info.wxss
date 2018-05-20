@@ -1,0 +1,44 @@
+/* pages/my-info/my-info/my-info.wxss */
+.my-info {
+  background-color: #fff;
+}
+.weui-label {
+  width: 200rpx;
+  font-size: 28rpx;
+  color: #8d8d8d;
+}
+
+.weui-cell {
+  padding: 10rpx 15px;
+  border-top:0rpx solid #f0f0f0;
+  border-bottom:0rpx solid #f0f0f0;
+}
+
+.weui-navbar__slider {
+  background-color: #35c590;
+}
+.weui-navbar__item.weui-bar__item_on {
+  color: #35c590;
+}
+.weui-search-bar__cancel-btn {
+  color: #35c590;
+}
+.weui-cell__bd_in-select-before,.weui-cell__hd_in-select-after {
+  padding-left: 0px;
+}
+.weui-input {
+  font-size: 30rpx;
+}
+.weui-cell__bd {
+  color: #777;
+  text-align: right;
+  padding-right: 20rpx;
+  font-size: 29rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.weui-input {
+  height: 90rpx;
+  min-height: 90rpx;
+  line-height: 90rpx;
+}

@@ -1,0 +1,5 @@
+/* pages/my-info/my-video/video-list/video-list.wxss */
+.videoListBody {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}

@@ -1,0 +1,15 @@
+<!--pages/my-info/my-video/my-.wxml-->
+<view>
+  <view class="section tc">
+    <video id="myVideo" src="{{ videoDetail.videoUrl }}"
+      enable-danmu danmu-btn controls poster="{{ videoDetail.coverUrl }}"></video>
+  </view>
+  <view>
+    <view url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{ videoDetail.title || '标题'}}</view>
+            <view class="weui-media-box__desc">{{ videoDetail.content || '内容' }}</view>
+        </view>
+    </view>
+  </view>
+</view>

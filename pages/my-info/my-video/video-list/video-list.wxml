@@ -1,0 +1,14 @@
+<!--pages/my-info/my-video/video-list/video-list.wxml-->
+<view class="video">
+   <view wx:for="{{ dataBody }}" class="videoListBody">
+    <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" bindtap="goDetail" data-index="{{ index }}">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="{{ item.coverUrl }}" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">{{ item.title || '标题' }}</view>
+            <view class="weui-media-box__desc">{{ item.content || '内容' }}</view>
+        </view>
+    </view>
+  </view>  
+</view>

@@ -1,0 +1,75 @@
+<!--pages/my-info/my-info/my-info.wxml-->
+<view class="my-info">
+  <!-- <image src="{{ detailImg[0] }}" style="width: 100%; height: 585px" /> -->
+  <view class="page__bd">
+    <form class="weui-cells weui-cells_after-title" report-submit="true" bindsubmit="saveData" bindreset="formReset">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">头像</view>
+        </view>
+        <view class="weui-cell__bd" style="height: 120rpx">
+          <image src="{{ avatarUrl }}" style="height: 120rpx; width: 120rpx;"></image>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">昵称</view>
+        </view>
+        <view class="weui-cell__bd">
+          {{ nickName }}
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">性别</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="sexChange" value="{{sexIndex}}" range="{{ sexArr }}">
+            <view class="weui-select_in-select-after">{{sexArr[sexIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      <!-- <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">生日</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" value="{{date}}" start="1900-09-01" end="2018-10-10" bindchange="bindDateChange">
+            <view class="weui-input">{{date}}</view>
+          </picker>
+        </view>
+      </view> -->
+      <!-- <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">真实姓名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="realName" value="{{ realName }}"/>
+        </view>
+      </view> -->
+      <!-- <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">手机号</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="number" name="cardNo"/>
+        </view>
+      </view> -->
+      <!-- <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">地址</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="cardName"/>
+        </view>
+      </view> -->
+      <!-- <view class="weui-flex" style="margin:  40rpx;">
+        <view class="weui-flex__item">
+          <view class="detail_Btn">    
+            <button class="mu-raised-button" form-type="submit">提交</button>
+          </view>
+        </view>
+      </view> -->
+    </form>
+  </view>
+</view>

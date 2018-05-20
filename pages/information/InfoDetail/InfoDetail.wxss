@@ -1,0 +1,13 @@
+/* pages/information/InfoDetail.wxss */
+.infoDetail {
+  background-color: #fff;
+  padding: 40rpx;
+}
+.page__desc {
+  color:#999;
+  font-size:28rpx;
+  margin:10px;
+}
+.wxParse-p {
+  font-size: 30rpx;
+}

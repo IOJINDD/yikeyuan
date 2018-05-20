@@ -1,0 +1,40 @@
+/* pages/my-info/my-info.wxss */
+.my-info {
+  background-color: #fff;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #fff;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+.self {
+  padding-top: 0px;
+}
+.self-top_bg {
+  background-color:#35c590;
+  width:100%;
+  height: 200rpx;
+  padding-top:60rpx;
+  padding-bottom: 80rpx;
+}
+
+.loginBtn {
+  margin-top:25px;
+  text-indent:20px;
+  letter-spacing:20px;
+}

@@ -1,0 +1,81 @@
+<!--pages/index/video-detail/confirm-order/confirm-order.wxml-->
+<view class="confirm-order" style="height: {{ windowHeight }}px">
+    <!-- <image src="{{ detailImg[0] }}" style="width: 100%; height: 585px" />   -->
+
+  <!-- <view class="firstBody" wx:if="{{ itemDetail.expressFlag == 1 }}">
+    <view class="weui-cell">
+      <span>联系人</span>
+      <input placeholder="请填写联系人姓名" value="{{  }}" />
+    </view>
+    <view class="weui-cell">
+      <span>手机号</span>
+      <input placeholder="请填写手机号码" type="number"/>
+    </view>
+  </view> -->
+
+  <view class="weui-cells__title">收货地址</view>
+  <view class="firstBody" bindtap="getAddress">
+    <view url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+      <view class="weui-media-box__hd weui-media-box__hd_in-location">
+        <image class="weui-media-box__thumb" src="{{ locationImg }}" style="width: 80rpx; height: 80rpx;"/>
+      </view>
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="title" hidden="{{ receiveAddress.userName }}">请选择您的收货地址</view>
+        <view class="title" hidden="{{ !receiveAddress.userName }}">
+          {{ receiveAddress.userName }}
+          <span style="margin-left: 20px">{{ receiveAddress.telNumber }}</span>
+        </view>
+        <view hidden="{{ !receiveAddress }}" class="detail_address">
+          {{ receiveAddress.provinceName }} {{ receiveAddress.cityName }} {{ receiveAddress.countyName }} {{ receiveAddress.detailInfo }}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells__title">商品详情</view>
+  <view class="secondBody">
+    <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+      <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+        <image class="weui-media-box__thumb" src="{{ itemDetail.picUrl }}" />
+      </view>
+      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="title">{{ itemDetail.title }}</view>
+        <view class="price"> 
+          <span style="color: #000">{{ buyType  }} </span> <span style="font-size: 24rpx">￥</span>{{ price }}
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+  <view class="weui-cells__title">选择数量</view>
+  <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">购买数量</view>
+          </view>
+          <view class="weui-cell__bd">
+            <image src="{{ addIcon2 }}" bindtap="addNumber"/>
+            <input class="number" value="{{ goodsNumber }}" type="number" bindinput="eventNumber"/>
+            <image src="{{ reduceIcon }}" hidden="{{ !reduceDis }}"/>
+            <image src="{{ reduceIcon2 }}" bindtap="reduceNumber" hidden="{{ reduceDis }}"/>
+          </view>
+      </view>
+  </view>
+
+  <view class="weui-cells__title">选填</view>
+  <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">备注</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input value="{{ remark }}" bindinput="eventRemark" placeholder="填写备注信息"/>
+          </view>
+      </view>
+  </view>
+
+   <view class="bottom">
+     <span class="bottomPrice"> <span style="font-size: 24rpx">￥</span> {{ price * goodsNumber }} </span>
+     <span class="bottomBtn" bindtap="goPay"> 确认支付 </span>
+  </view>
+</view>

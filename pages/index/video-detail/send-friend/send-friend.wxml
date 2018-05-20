@@ -1,0 +1,9 @@
+<!--pages/index/video-detail/send-friend/send-friend.wxml-->
+  <view>
+    <image src="{{ detailImg[0] }}" style="width: 100%; height: 477px" />
+    <image src="{{ detailImg[1] }}" style="width: 100%; height: 601px" />
+    <image src="{{ detailImg[3] }}" style="width: 100%; height: 587px" />
+  </view>
+  <view class="bottom">
+    <image src="{{ detailImg[2] }}" style="width: 100%; height: 60px"/>
+  </view>

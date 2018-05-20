@@ -1,0 +1,167 @@
+/* pages/index/video-detail/confirm-order/confirm-order.wxss */
+
+.confirm-order {
+  background-color: #ebebeb;
+}
+
+.weui-cell {
+  font-size: 30rpx;
+}
+
+.weui-cell input {
+  padding-left: 40rpx;
+}
+
+.firstBody {
+  background-color: #fff;
+}
+
+.secondBody {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.title {
+  font-size: 28rpx;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #a7a7a7;
+}
+
+.price {
+  color: #f33740;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+.weui-media-box__hd_in-appmsg {
+  margin-right: 0.8em;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+}
+.weui-cell__bd image {
+  width: 50rpx;
+  height: 50rpx;
+  float: right;
+}
+.number {
+  float:right;
+  width:50rpx;
+  padding-right:40rpx;
+}
+.bottom {
+  position:fixed;
+  bottom:0;
+  height:100rpx;
+  background-color:#fff;
+  width:100%;
+  border-top:1px solid #ccc;
+  line-height:100rpx;
+  text-align:right;
+}
+.bottomPrice {
+  color:#f0bf42;
+  font-size:34rpx;
+  margin-right:20rpx;
+  font-weight: 400;
+
+}
+.bottomBtn {
+  background-color:#fde534;
+  padding:10px;
+  border-radius:2px;
+  border: 1px solid #ccc;
+  font-size: 26rpx;
+  margin-right:10px;
+}
+
+.weui-cells__title {
+  margin-top: 0px;
+  padding-top: 1em;
+}
+.detail_address {
+  color: #8e8e8e;
+  font-size: 28rpx;
+  line-height: 34rpx;
+}
+.weui-media-box__thumb {
+  vertical-align: middle;
+}
+
+/* pages/my-code/order-detail.wxss */
+
+.confirm-order {
+  background-color: #f8f8f8;
+}
+
+.weui-cell {
+  font-size: 30rpx;
+  padding: 10px;
+}
+
+.weui-cell input {
+  padding-left: 20rpx;
+}
+
+.weui-cells__title {
+  margin-top: 0px;
+  padding-top: 1em;
+}
+
+.firstBody {
+  background-color: #fff;
+}
+
+.secondBody {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.title {
+  font-size: 30rpx;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #787878;
+}
+
+.price {
+  color: #f33740;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+.weui-media-box__hd_in-appmsg {
+  margin-right: 0.8em;
+  width: 140rpx;
+  height: 140rpx;
+  line-height: 140rpx;
+  text-align: center;
+}
+.weui-media-box__hd_in-location {
+  margin-right: 0.8em;
+  height: 140rpx;
+  line-height: 140rpx;
+  text-align: center;  
+}
+
+.weui-cell__bd {
+  text-align: right;
+}
+
+.weui-cell__bd image {
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-top: 4px;
+}
+

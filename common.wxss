@@ -1,0 +1,132 @@
+p {
+  display: block;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+
+.red {
+  color: rgba(230, 55, 55, 0.75);
+}
+
+.greed {
+  color: #35c590;
+}
+
+.com_labelStyle {
+  display: inline-block;
+  padding: 6rpx 18rpx;
+  background-color: #e5f4ef;
+  color: #35c590;
+  font-size: 24rpx;
+}
+
+.com_list_time {
+  color: #ccc;
+  margin-top: 20rpx;
+  display: inline-block;
+  text-align: left;
+  font-size: 24rpx;
+}
+
+.mu-flexbox {
+  border-bottom: 2rpx solid #ccc;
+  padding: 30rpx 20rpx;
+  color: #8a8787;
+  background-color: #fff;
+  font-size: 24rpx;
+}
+
+.mu-raised-button {
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  background-color: rgb(53, 197, 144);
+  color: rgb(255, 255, 255);
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  border-radius: 2px;
+  height: 36px;
+  line-height: 36px;
+  width: 100%;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-box-flex: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex: 0 0 auto;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  cursor: pointer;
+  font-size: 28rpx;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.117647), 0 1px 4px rgba(0, 0, 0, 0.117647);
+}
+
+.sectionInput {
+  width: 100%;
+  border-top: 2rpx solid #ccc;
+  border-bottom: 2rpx solid #ccc;
+  position: relative;
+}
+
+.sectionInput input {
+  padding: 25rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  font-size: 28rpx;
+}
+
+.weui-form-preview__btn {
+  font-size: 30rpx;
+}
+
+.weui-vcode-btn {
+  color: #35c590;
+  font-size: 26rpx;
+}
+
+.weui-label {
+  width: 200rpx;
+  font-size: 30rpx;
+  color: #8d8d8d;
+}
+
+.weui-cell {
+  padding: 30rpx 15px;
+  border-top: 4rpx solid #f0f0f0;
+  border-bottom: 4rpx solid #f0f0f0;
+}
+
+.weui-navbar__slider {
+  background-color: #35c590;
+}
+.weui-navbar__item.weui-bar__item_on {
+  color: #35c590;
+}
+.weui-search-bar__cancel-btn {
+  color: #35c590;
+}
+.weui-cell__bd_in-select-before,.weui-cell__hd_in-select-after {
+  padding-left: 0px;
+}
+.clearfix:after {
+    content: " ";
+    display: table;
+    clear: both;
+}

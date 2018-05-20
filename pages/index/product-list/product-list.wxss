@@ -1,0 +1,60 @@
+/* pages/index/product-list/product-list.wxss */
+.product-list {
+  background-color: #fff;
+}
+.page__bd {
+  height: 54px;
+  overflow-y: scroll;
+  position: fixed;
+  background-color: #fff;
+  z-index: 1000;
+}
+.span_tab {
+  padding:0px 10px;
+  font-size:30rpx;
+  margin:0px 10px;
+  height:50px;
+  display:inline-block;
+  color: #999;
+  line-height:50px;
+}
+.actived_tab {
+  border-bottom:2px solid #35c590;
+  color: #000;
+}
+.weui-media-box__hd_in-appmsg {
+  width:100px;
+  height:100px;
+  line-height:100px;
+}
+.weui-media-box__desc {
+  margin-top: 40px;
+}
+.labelDetail .number {
+  font-size: 30rpx;
+  color: #646464;
+}
+ .price {
+  font-size: 28rpx;
+  color: #ff5b5b;  
+  margin-right: 30px;
+}
+ .price em {
+  font-size: 28rpx;
+}
+.labelDetail .label {
+  display: inline-block;
+  color: #298eff;
+  border: 1px solid #94c6ff;
+  border-radius: 10rpx;
+  padding: 6rpx 12rpx;
+  font-size: 26rpx;
+  margin-right: 10px;
+}
+.weui-media-box_right {
+  margin-left:5%;
+  margin-top:60px;
+}
+.weui-media-box {
+  border-bottom:2px solid #ccc;
+}

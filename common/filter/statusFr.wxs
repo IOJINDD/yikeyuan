@@ -1,0 +1,66 @@
+// getDate函数添加 时间格式方法
+var statusFr = {
+  orderStatus: function (status) {
+    console.log(status)
+    if (status == 0) {
+      return '待付款'
+    } else if (status == 1) {
+      return '待发货'
+    } else if (status == 2) {
+      return '已发货'
+    }
+  },
+  /***
+   * 转账类型
+   */
+  typeStatus: function (status) {
+    if (status == 0) {
+      return '微信转账'
+    } else if (status == 1) {
+      return '支付宝转账'
+    } else if (status == 2) {
+      return '银行转账'
+    }
+  },
+  /**
+   * 转账状态
+   */
+  dealFlag: function (status) {
+    console.log(status)
+    if (status == 0) {
+      return '未转账'
+    } else if (status == 1) {
+      return '已转账'
+    }
+  },
+  getDate: function (time) {
+    console.log('11')
+    if (!time) return '';
+
+    var date = getDate(time);
+    var M = date.getMonth() + 1;
+    var y = date.getFullYear();
+    var d = date.getDate();
+    var h = date.getHours()
+    var m = date.getMinutes()
+    var s = date.getSeconds()
+
+    if (M < 10) M = "0" + M;
+    if (d < 10) d = "0" + d;
+    if (h < 10) h = "0" + h;
+    if (m < 10) m = "0" + m;
+    if (s < 10) s = "0" + s;
+    return y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s
+  },
+  moneyFormat: function (money) {
+    console.log(money)
+    return money
+  }
+}
+module.exports = {
+  orderStatus: statusFr.orderStatus,
+  typeStatus: statusFr.typeStatus,
+  dealFlag: statusFr.dealFlag,
+  getDate: statusFr.getDate,
+  moneyFormat: statusFr.moneyFormat,
+}
