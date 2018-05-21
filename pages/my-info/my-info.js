@@ -1,5 +1,5 @@
 // pages/my-info/my-info.js
-import { wxlogin, getOpenId } from '../../services/service.js'
+import { wxlogin, getOpenId, userDetail } from '../../services/service.js'
 const app = getApp()
 Page({
 
@@ -32,7 +32,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (wx.getStorageSync('wxInfo')) {
+    // 获取用户信息
+    console.log(app.globalData.userInfo)
+
+    if (wx.getStorageSync('appOpenid')) {
       this.setData({
         userInfo: wx.getStorageSync('wxInfo'),
         hasUserInfo: true
@@ -85,32 +88,37 @@ Page({
     // 授权成功
     if (e.detail.userInfo) {
 
-      // 保存个人信息
-      wx.setStorageSync('wxInfo', e.detail.userInfo)
-      this.setData({
-        userInfo: e.detail.userInfo,
-        hasUserInfo: true
-      })
-
       // 获取 unionid 
       wx.getUserInfo({
         success: infoRes => {
           wx.login({
             success: loginRes => {
               getOpenId.bind(this)({
-                wxcode: loginRes.code,
+                wxcode: loginRes.code
               }).then((res) => {
-                console.log('unionid')
-                console.log(res)
 
-                // pa保存openid以及unionoid
-                wx.setStorageSync('appOpenid', res.dataBody)
-                let data = wx.getStorageSync('wxInfo')
-                data['appOpenid'] = res.dataBody
-                wxlogin.bind(this)(data).then(res => {
-                  wx.setStorageSync('userInfo', res.dataBody)
-                  wx.setStorageSync('authorization', res.dataBody.authorization)
-                })
+                if (res.code == 200) {
+                  // 保存个人信息
+                  wx.setStorageSync('wxInfo', e.detail.userInfo)
+                  this.setData({
+                    userInfo: e.detail.userInfo,
+                    hasUserInfo: true
+                  })
+
+                  // 保存openid
+                  wx.setStorageSync('appOpenid', res.dataBody)
+
+                  let data = e.detail.userInfo
+                  data['appOpenid'] = res.dataBody
+
+                  // 用户模块 / 微信小程序授权登陆
+                  wxlogin.bind(this)(data).then(res => {
+                    wx.setStorageSync('userInfo', res.dataBody)
+                    wx.setStorageSync('authorization', res.dataBody.authorization)
+                  })
+                } else {
+                  console.log('获取unionid失败', res)
+                }
               })
             }
           })

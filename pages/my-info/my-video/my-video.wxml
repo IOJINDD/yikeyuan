@@ -1,7 +1,7 @@
 <!--pages/my-info/my-video/my-.wxml-->
 <view>
   <view class="section tc">
-    <video id="myVideo" preload="auto" autoplay src="{{ videoDetail.videoUrl }}"
+    <video id="myVideo" preload="auto" src="{{ videoDetail.videoUrl }}"
       enable-danmu danmu-btn controls poster="{{ videoDetail.coverUrl }}"></video>
   </view>
   <view>

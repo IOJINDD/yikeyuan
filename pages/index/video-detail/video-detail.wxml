@@ -51,10 +51,11 @@
   </view>
 
   <view class="bottom" wx:if="{{ itemDetail.itemPrice == 0 }}">
-    <p class="goCollection" bindtap="goCollection" hidden="{{ !itemDetail.needReBuy }}">
+    <p class="goCollection" bindtap="goCollection" wx:if="{{ itemDetail.needReBuy && hasUserInfo }}">
       <span>立即收藏</span>
     </p>
-    <p class="goCollection"  hidden="{{ itemDetail.needReBuy }}">
+    <button wx:if="{{!hasUserInfo }}" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" class="goCollection"> 立即收藏 </button>
+    <p class="goCollection"  wx:if="{{ !itemDetail.needReBuy }}">
       <span>已收藏</span>
     </p>
   </view>

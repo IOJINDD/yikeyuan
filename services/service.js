@@ -186,6 +186,9 @@ function getPDetail (params) {
     wx.request({
       url: api.devApiHost + uris.getPDetail + '/' + params.itemId,
       method: 'GET',
+      header: {
+        Authorization: wx.getStorageSync('authorization')
+      },
       success: (res) => {
         resolve(res.data)
       },
