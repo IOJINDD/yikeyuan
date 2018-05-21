@@ -27,7 +27,7 @@
       <view class="more_people">
         <span>{{ itemDetail.buyerCount }}人参加</span>
       </view>
-    </view> 
+    </view>
   </view>
   <view>
     <p class="desc">{{ itemDetail.content }}</p>
@@ -46,16 +46,16 @@
   <view class="bottom" wx:if="{{ !itemDetail.actFk && itemDetail.itemPrice != 0 }}">
     <p class="goBuy" bindtap="goAloneBuy">
        <span>￥ {{ itemDetail.itemPrice / 100 }}</span>
-      <span>立即购买</span> 
+      <span>立即购买</span>
     </p>
   </view>
 
   <view class="bottom" wx:if="{{ itemDetail.itemPrice == 0 }}">
-    <p class="goCollection" bindtap="goCollection" hidden="{{ itemDetail.needReBuy }}">
-      <span>立即收藏</span> 
+    <p class="goCollection" bindtap="goCollection" hidden="{{ !itemDetail.needReBuy }}">
+      <span>立即收藏</span>
     </p>
-    <p class="goCollection"  hidden="{{ !itemDetail.needReBuy }}">
-      <span>已收藏</span> 
+    <p class="goCollection"  hidden="{{ itemDetail.needReBuy }}">
+      <span>已收藏</span>
     </p>
   </view>
 
