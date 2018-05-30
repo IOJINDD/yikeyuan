@@ -93,6 +93,13 @@ Page({
     })
   },
 
+  goDetail: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: `/pages/index/info-detail/info-detail?id=${e.currentTarget.dataset.id}`,
+    })
+  },
+
   /**
    * 上拉刷新
    */

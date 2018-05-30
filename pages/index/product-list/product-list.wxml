@@ -10,8 +10,8 @@
   </scroll-view>
   <view style="height: 54px;">
   </view>
-  <view wx:for="{{ dataBody }}" wx:key="{{ index }}">
-    <navigator url="{{ '../video-detail/video-detail?id=' + item.id }}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+  <view wx:for="{{ dataBody }}" wx:key="{{ item }}">
+    <navigator url="{{ '../info-detail/info-detail?id=' + item.id }}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
       <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
           <image class="weui-media-box__thumb" src="{{ item.picUrl }}" />
       </view>

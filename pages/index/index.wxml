@@ -36,7 +36,7 @@
 
   <view class="weui-panel weui-panel_access" style="width: 100%;overflow:initial">
     <view class="weui-panel__hd">艺客圈资讯</view>
-    <view class="weui-panel__bd" wx:for="{{ dataBody }}">
+    <view class="weui-panel__bd" wx:for="{{ dataBody }}" wx:key="{{ item }}">
         <view class="weui-media-box weui-media-box_appmsg" bindtap="goDetail" data-id="{{ item.id }}">
             <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
               <image class="weui-media-box__thumb" src="{{ item.coverUrl || defaultImg }}" />
