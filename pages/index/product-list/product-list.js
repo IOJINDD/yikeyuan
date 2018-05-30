@@ -36,7 +36,7 @@ Page({
   onReady: function () {
     console.log(wx.getStorageSync('categories'))
     this.setData({
-      categories: wx.getStorageSync('categories')
+      categories: [wx.getStorageSync('categories')[0], wx.getStorageSync('categories')[1], wx.getStorageSync('categories')[2], wx.getStorageSync('categories')[3], wx.getStorageSync('categories')[4]]
     })
     
   },

@@ -1,0 +1,4 @@
+/* pages/index/video-detail/confirm-order/pay-success.wxss */
+.pay-success {
+  background-color: #fff;
+}

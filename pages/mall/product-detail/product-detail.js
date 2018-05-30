@@ -3,7 +3,7 @@ import { getCode, getPDetail, getCollection, wxlogin, getOpenId, userDetail } fr
 import { checkData } from '../../../utils/util.js'
 const app = getApp()
 let time = 0
-let _options 
+let _options
 Page({
 
   /**
@@ -101,7 +101,13 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '这个商品很棒哦，来一起参团吧',
+      imageUrl: this.data.itemDetail.imgUrls[0],
+      success: (res) => {
+        console.log(res)
+      }
+    }
   },
 
   /**
@@ -237,7 +243,7 @@ Page({
         wx.showModal({
           title: '提示',
           content: res.msg,
-        })  
+        })
       }
     })
   },
@@ -294,5 +300,10 @@ Page({
     } else {
       // 授权失败
     }
+  },
+
+  // 邀请好友
+  invite: function (e) {
+
   }
 })

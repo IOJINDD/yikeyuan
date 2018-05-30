@@ -1,5 +1,0 @@
-/* pages/information/information.wxss */
-@import "../../wxParse/wxParse.wxss";
-.weui-media-box__title {
-  margin-bottom:20px;
-}

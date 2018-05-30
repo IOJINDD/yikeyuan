@@ -1,4 +1,4 @@
-/* pages/index/product-list/product-list.wxss */
+/* pages/index/info-list/info-list.wxss */
 .product-list {
   background-color: #fff;
 }

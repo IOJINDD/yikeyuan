@@ -1,7 +1,7 @@
 
 /* eslint-disable */
 
-const devApiHost = 'http://116.62.70.24:8080'
+const devApiHost = 'https://yikequan.lyykq.com'
 
 module.exports = {
   devApiHost: devApiHost

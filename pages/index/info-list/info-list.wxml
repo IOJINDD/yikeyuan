@@ -1,0 +1,24 @@
+<!--pages/index/info-list/info-list.wxml-->
+<wxs module="getDate" src="../../../common/filter/statusFr.wxs"></wxs>
+<view class="info-list">
+  <scroll-view class="page__bd" scroll-x>
+    <span wx:for="{{ categories }}" class="span_tab {{ activitedIndex == index ? 'actived_tab': '' }}" bindtap="changeSpan" data-index="{{ index }}" wx:key="{{ index }}">
+      {{ item.name }}
+    </span>
+  </scroll-view>
+  <view style="height: 54px;">
+  </view>
+  <view style="background-color: #fff;">
+    <view class="weui-panel__bd" wx:for="{{ dataBody }}">
+        <view class="weui-media-box weui-media-box_appmsg" bindtap="goDetail" data-id="{{ item.id }}">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{ item.coverUrl || defaultImg }}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">{{ item.title }}</view>
+                <view class="weui-media-box__desc">{{ getDate.getDate(item.createTime) }}</view>
+            </view>
+        </view>
+    </view>
+  </view>
+</view>

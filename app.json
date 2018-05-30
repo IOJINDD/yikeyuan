@@ -3,17 +3,18 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/my-info/my-info",
-    "pages/index/video-detail/video-detail",
-    "pages/index/video-detail/send-friend/send-friend",
-    "pages/index/video-detail/confirm-order/confirm-order",
     "pages/my-info/my-info/my-info",
     "pages/my-info/my-order/my-order",
     "pages/my-info/my-video/my-video",
-    "pages/information/information",
     "pages/my-info/my-video/video-list/video-list",
-    "pages/information/InfoDetail/InfoDetail",
+    "pages/mall/mall",
+    "pages/mall/product-detail/confirm-order/pay-success",
+    "pages/mall/product-detail/product-detail",
+    "pages/mall/product-detail/send-friend/send-friend",
+    "pages/mall/product-detail/confirm-order/confirm-order",
+    "pages/index/info-detail/info-detail",
     "pages/index/product-list/product-list",
-    "pages/index/video-detail/confirm-order/pay-success"
+    "pages/index/info-list/info-list"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,15 +30,15 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "common/assets/tab/index.png",
-        "selectedIconPath": "common/assets/tab/index2.png",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/information/information",
         "iconPath": "common/assets/tab/information.png",
         "selectedIconPath": "common/assets/tab/information2.png",
         "text": "资讯"
+      },
+      {
+        "pagePath": "pages/mall/mall",
+        "iconPath": "common/assets/tab/shopping.png",
+        "selectedIconPath": "common/assets/tab/shopping2.png",
+        "text": "商城"
       },
       {
         "pagePath": "pages/my-info/my-info",

@@ -4,13 +4,13 @@
     <span class="span_tab {{ activitedIndex == 'all' ? 'actived_tab': '' }}" bindtap="changeSpan" data-index="all">
       全部
     </span>
-    <span wx:for="{{ categories }}" class="span_tab {{ activitedIndex == index ? 'actived_tab': '' }}" bindtap="changeSpan" data-index="{{ index }}">
+    <span wx:for="{{ categories }}" class="span_tab {{ activitedIndex == index ? 'actived_tab': '' }}" bindtap="changeSpan" data-index="{{ index }}" wx:key="{{ index }}">
       {{ item.name }}
     </span>
   </scroll-view>
   <view style="height: 54px;">
   </view>
-  <view wx:for="{{ dataBody }}">
+  <view wx:for="{{ dataBody }}" wx:key="{{ index }}">
     <navigator url="{{ '../video-detail/video-detail?id=' + item.id }}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
       <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
           <image class="weui-media-box__thumb" src="{{ item.picUrl }}" />
@@ -20,7 +20,7 @@
           <view class="weui-media-box__desc">
             <view class="labelDetail">
               <span class="price">￥ <em>{{ item.itemPrice / 100 }}</em> </span>
-              <span class="label" wx:for="{{ item.tagList }}" wx:for-item="j" wx:for-index="i" wx:if="{{ i < 2}}">{{ j }}</span>
+              <span class="label" wx:for="{{ item.tagList }}" wx:for-item="j" wx:key="{{ index }}" wx:for-index="i" wx:if="{{ i < 2}}">{{ j }}</span>
             </view> 
           </view>
       </view>

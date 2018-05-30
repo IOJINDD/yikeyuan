@@ -1,5 +1,5 @@
 // pages/index/video-detail/confirm-order/confirm-order.js
-import { setOrder } from '../../../../services/service.js'
+import { setOrder, getOpenId, wxlogin } from '../../../../services/service.js'
 Page({
 
   /**
@@ -16,6 +16,7 @@ Page({
     reduceDis: true,
     itemDetail: {},
     buyType: '',
+    hasUserInfo: false,
     receiveAddress: {}, // 收货地址详情
   },
 
@@ -57,6 +58,17 @@ Page({
     if (wx.getStorageSync('address')) {
       this.setData({
         receiveAddress: wx.getStorageSync('address')
+      })
+    }
+
+    // 判断是否有用户信息
+    if (wx.getStorageSync('appOpenid')) {
+      this.setData({
+        hasUserInfo: true
+      })
+    } else {
+      this.setData({
+        hasUserInfo: false
       })
     }
   },
@@ -204,60 +216,105 @@ Page({
     let itemDetail = wx.getStorageSync('itemDetail')
 
     if (this.data.receiveAddress.detailInfo) {
-      if (wx.getStorageSync('wxInfo')) {
-        setOrder.bind(this)({
-          itemFk: itemDetail.id,
-          price: this.data.price * 100 * this.data.goodsNumber,
-          appOpenid: wx.getStorageSync('appOpenid'),
-          buyNum: this.data.goodsNumber,
-          oExpressInfo: {
-            province: this.data.receiveAddress.provinceName,
-            city: this.data.receiveAddress.cityName,
-            district: this.data.receiveAddress.countyName,
-            address: this.data.receiveAddress.detailInfo,
-            nationaCode: this.data.receiveAddress.nationaCode,
-            postalCode: this.data.receiveAddress.postalCode,
-            mobile: this.data.receiveAddress.telNumber,
-            receiver: this.data.receiveAddress.userName,
-          }
-        }).then(res => {
-          if (res.code == 200) {
-            console.log(res)
-            wx.requestPayment({
-              timeStamp: res.dataBody.timeStamp,
-              nonceStr: res.dataBody.nonceStr,
-              package: res.dataBody.package,
-              signType: res.dataBody.signType,
-              paySign: res.dataBody.paySign,
-              success: (res) => {
-                console.log(res)
-                wx.redirectTo({
-                  url: './pay-success',
-                })
-              },
-              fail: (res) => {
-                console.log(res)
-              }
-            })
-          } else {
-            if (res.msg == '用户未认证' || res.msg == '请填写完整信息') {
-              this.openConfirm('下单功能需要您授权用户信息才能进行，是否去设置打开？')
-            } else {
-              wx.showToast({
-                title: res.msg,
-                icon: 'none'
+      setOrder.bind(this)({
+        itemFk: itemDetail.id,
+        price: this.data.price * 100 * this.data.goodsNumber,
+        appOpenid: wx.getStorageSync('appOpenid'),
+        buyNum: this.data.goodsNumber,
+        oexpressInfo: {
+          province: this.data.receiveAddress.provinceName,
+          city: this.data.receiveAddress.cityName,
+          district: this.data.receiveAddress.countyName,
+          address: this.data.receiveAddress.detailInfo,
+          nationaCode: this.data.receiveAddress.nationaCode,
+          postalCode: this.data.receiveAddress.postalCode,
+          mobile: this.data.receiveAddress.telNumber,
+          receiver: this.data.receiveAddress.userName,
+        }
+      }).then(res => {
+        if (res.code == 200) {
+          console.log(res)
+          wx.requestPayment({
+            timeStamp: res.dataBody.timeStamp,
+            nonceStr: res.dataBody.nonceStr,
+            package: res.dataBody.package,
+            signType: res.dataBody.signType,
+            paySign: res.dataBody.paySign,
+            success: (res) => {
+              console.log(res)
+              wx.redirectTo({
+                url: './pay-success',
               })
+            },
+            fail: (res) => {
+              console.log(res)
             }
-          }
-        })
-      } else {
-        this.openConfirm('下单需要授权用户信息，是否去设置打开？')
-      }
+          })
+        } else {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none'
+          })
+        }
+      })
     } else {
       wx.showToast({
         title: '亲，收货地址不能为空',
         icon: 'none'
       })
+    }
+  },
+
+  // 授权登录
+  bindgetuserinfo: function (e) {
+    console.log(e)
+    // 授权成功
+    if (e.detail.userInfo) {
+
+      // 获取 unionid 
+      wx.getUserInfo({
+        success: infoRes => {
+          wx.login({
+            success: loginRes => {
+              getOpenId.bind(this)({
+                wxcode: loginRes.code
+              }).then((res) => {
+
+                if (res.code == 200) {
+                  // 保存个人信息
+                  wx.setStorageSync('wxInfo', e.detail.userInfo)
+                  this.setData({
+                    userInfo: e.detail.userInfo,
+                    hasUserInfo: true
+                  })
+
+                  // 保存openid
+                  wx.setStorageSync('appOpenid', res.dataBody)
+
+                  let data = e.detail.userInfo
+                  data['appOpenid'] = res.dataBody
+
+                  // 用户模块 / 微信小程序授权登陆
+                  wxlogin.bind(this)(data).then(res => {
+                    wx.setStorageSync('userInfo', res.dataBody)
+                    wx.setStorageSync('authorization', res.dataBody.authorization)
+                  })
+                } else {
+                  console.log('获取unionid失败', res)
+                }
+              })
+            }
+          })
+
+          // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+          // 所以此处加入 callback 以防止这种情况
+          if (this.userInfoReadyCallback) {
+            this.userInfoReadyCallback(res)
+          }
+        }
+      })
+    } else {
+      // 授权失败
     }
   }
 })

@@ -1,4 +1,4 @@
-/* pages/information/InfoDetail.wxss */
+/* pages/index/info-detail/info-detail.wxss */
 .infoDetail {
   background-color: #fff;
   padding: 40rpx;
@@ -10,4 +10,7 @@
 }
 .wxParse-p {
   font-size: 30rpx;
+}
+video {
+  width: 100%;
 }

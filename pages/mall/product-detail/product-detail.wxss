@@ -1,4 +1,4 @@
-/* pages/index/video-detail/video-detail.wxss */
+/* pages/index/productDetail/productDetail.wxss */
 
 .bottom {
   position: fixed;
@@ -24,7 +24,7 @@
   font-size: 34rpx;
   color: #333;
   font-weight: bolder;
-  padding-top: 10rpx;
+  padding-top: 20rpx;
   margin-bottom: 10px;
 }
 
@@ -70,6 +70,8 @@
 .discount {
   margin-top: 0.133333rem;
   background: #fff;
+  border-top:4px solid #f6f6f6;
+  border-bottom:4px solid #f6f6f6;
 }
 
 .discount p {
@@ -139,8 +141,8 @@
 }
 
 .aloneBuy {
-  left: 2%;
-  width: 47%;
+  left: 32%;
+  width: 33%;
   height: 100rpx;
   border-radius: 10rpx;
   position: absolute;
@@ -175,8 +177,8 @@
   border: none;
   background: #ffe433;
   height: 100rpx;
-  width: 47%;
-  left: 51%;
+  width: 33%;
+  left: 67%;
   border-radius: 10rpx;
   position: absolute;
   top: 10rpx;
@@ -257,4 +259,19 @@
   padding:2px 20px;
   text-indent:2em;
   font-weight:400;
+}
+
+.invite {
+  height:100rpx;
+  left: 2%;
+  width: 28%;
+  border-radius:10rpx;
+  position:absolute;
+  top:10rpx;
+  text-align:center;
+  border:0.02rem solid #d5d5d5;
+  font-size:32rpx;
+  line-height:100rpx;
+  background-color:#f13838;
+  color:#fff;
 }

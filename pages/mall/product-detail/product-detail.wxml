@@ -1,9 +1,9 @@
-<!--pages/index/video-detail/video-detail.wxml-->
-<view class="videoDetail">
-  <swiper indicator-dots="true" autoplay="true" interval="4000" style="width: {{ windowWidth }}px; height: 250px">
+<!--pages/mall/productDetail/productDetail.wxml-->
+<view class="productDetail">
+  <swiper indicator-dots="true" autoplay="true" interval="4000" style="width: {{ windowWidth }}px; height: {{ windowWidth - 100 }}px">
     <block wx:for="{{ itemDetail.imgUrls }}">
       <swiper-item>
-        <image src="{{ item }}" style="width: {{ windowWidth }}px" />
+        <image src="{{ item }}" mode="aspectFit" style="width: {{ windowWidth }}px; height: {{ windowWidth - 100 }}px" />
       </swiper-item>
     </block>
   </swiper>
@@ -29,10 +29,13 @@
       </view>
     </view>
   </view>
-  <view>
+  <view style="margin-top: 10px">
     <p class="desc">{{ itemDetail.content }}</p>
   </view>
   <view class="bottom" wx:if="{{ itemDetail.actFk && itemDetail.itemPrice != 0 }}">
+    <button class="invite" open-type="share" >
+      邀请好友
+    </button>
     <p class="aloneBuy" bindtap="goAloneBuy">
       <span>￥ {{ itemDetail.itemPrice / 100 }}</span>
       <span>单独购</span>
@@ -58,6 +61,10 @@
     <p class="goCollection"  wx:if="{{ !itemDetail.needReBuy }}">
       <span>已收藏</span>
     </p>
+  </view>
+
+  <view style="width: 100%; height: 55px">
+  
   </view>
 
 

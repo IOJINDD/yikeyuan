@@ -79,6 +79,7 @@
   border: 1px solid #ccc;
   font-size: 26rpx;
   margin-right:10px;
+  display: inline;
 }
 
 .weui-cells__title {

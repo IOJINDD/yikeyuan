@@ -1,5 +1,5 @@
 //index.js
-import { getAds, getCategories, getPitem } from '../../services/service.js'
+import { getAds, getCategories, getPitem, getArticlesList } from '../../services/service.js'
 //获取应用实例
 const app = getApp()
 
@@ -7,11 +7,25 @@ Page({
   data: {
     timeIcon: '/common/assets/images/time.svg',
     autoplay: false,
+    defaultImg: '/common/assets/images/default.jpeg',
     imgAll: '/common/assets/images/all.svg',
     page: {
       pageNo: 1,
       pageSize: 5
     },
+    categories: [{
+      name: '精彩活动',
+      iconUrl: '/common/assets/images/activity.svg'
+    }, {
+      name: '名校探秘',
+      iconUrl: '/common/assets/images/school.png'
+    }, {
+      name: '课外教育',
+      iconUrl: '/common/assets/images/education.png'
+    }, {
+      name: '商城',
+      iconUrl: '/common/assets/images/mall.png'
+    }],
     dataBody: []
   },
   onLoad: function () {
@@ -33,13 +47,10 @@ Page({
       level: 1
     }).then(res => {
       wx.setStorageSync('categories', res.dataBody)
-      this.setData({
-        categories: res.dataBody
-      })
     })
 
     // 获取商品
-    this.getProductList()
+    this.getList()
     // 设置高度
     if (app.globalData.systemInfo) {
       this.setData({
@@ -61,25 +72,25 @@ Page({
   goDetail: function (e) {
     console.log(e)
     wx.navigateTo({
-      url: `./video-detail/video-detail?id=${e.currentTarget.dataset.id}`
+      url: `./info-detail/info-detail?id=${e.currentTarget.dataset.id}`
     })
   },
 
   /**
    * 分页获取商品信息
    */
-  getProductList: function () {
+  getList: function () {
     wx.showLoading({
       title: '加载中...',
     })
-    // 获取商品信息
-    getPitem.bind(this)({
-      categoryFk: this.data.categoryFk,
+
+    getArticlesList.bind(this)({
       pageNo: this.data.page.pageNo,
-      pageSize: this.data.page.pageSize
+      pageSize: this.data.page.pageSize,
+      keyword: this.data.keyword
     }).then(res => {
       let data = this.data.dataBody
-      res.dataBody.data.forEach((item) => {
+      res.dataBody.data.forEach((item, index) => {
         data.push(item)
       })
       this.setData({
@@ -96,7 +107,6 @@ Page({
    * 上拉刷新
    */
   onReachBottom: function () {
-    wx.showNavigationBarLoading()
     let pageNo = this.data.page.pageNo + 1
     this.setData({
       page: {
@@ -104,7 +114,7 @@ Page({
         pageSize: 5
       }
     })
-    this.getProductList()
+    this.getList()
   },
 
   /**
@@ -112,8 +122,25 @@ Page({
    */
   goSearch: function (e) {
     console.log(e)
-    wx.navigateTo({
-      url: `./product-list/product-list?id=${e.currentTarget.dataset.index}`,
+    if (e.currentTarget.dataset.index == 3) {
+      wx.switchTab({
+        url: '/pages/mall/mall',
+      })
+    } else {
+      wx.navigateTo({
+        url: `./info-list/info-list?index=${e.currentTarget.dataset.index}`,
+      })
+    }
+  },
+
+  /**
+   * 查看大图
+   */
+  previewImage: function (e) {
+    console.log(e.currentTarget.dataset.index)
+    wx.previewImage({
+      current: this.data.imgUrls[e.currentTarget.dataset.index], // 当前显示图片的http链接
+      urls: this.data.imgUrls // 需要预览的图片http链接列表
     })
   }
 })

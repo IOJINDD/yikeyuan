@@ -1,0 +1,18 @@
+<!--pages/my-code/pay-success.wxml-->
+<view class="page pay-success" style="height: {{ windowHeight }}px">
+    <view class="weui-msg">
+        <view class="weui-msg__icon-area">
+            <icon type="success" color="#35c590" size="93"></icon>
+        </view>
+        <view class="weui-msg__text-area">
+            <view class="weui-msg__title">支付成功</view>
+            <!-- <view class="weui-msg__desc">挪车牌将会以最快速度送达到您的面前，请保持手机通畅。</view> -->
+        </view>
+        <view class="weui-msg__opr-area">
+            <view class="weui-btn-area">
+                <button class="weui-btn" open-type="share" type="primary" style="background-color: #35c590; color: #fff">邀请好友</button>
+                 <button class="weui-btn" type="default" bindtap="goSelf">个人中心</button> 
+            </view>
+        </view>
+    </view>
+</view>

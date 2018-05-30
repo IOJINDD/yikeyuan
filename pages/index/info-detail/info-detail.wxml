@@ -1,0 +1,17 @@
+<!--pages/index/info-detail/info-detail.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<wxs module="getDate" src="../../../common/filter/statusFr.wxs"></wxs>
+<view>
+  <view class="section tc" wx:if="{{ detail.videoUrl }}">
+    <video id="myVideo" preload="auto" src="{{ detail.videoUrl }}" page-gesture="true" enable-danmu danmu-btn controls poster="{{ detail.coverUrl }}"></video>
+  </view>
+  <view class="infoDetail">
+    <view class="page__hd">
+      <view class="page__title">{{ detail.title}}</view>
+      <view class="page__desc">{{ getDate.getDate(detail.createTime) }}</view>
+    </view>
+    <view class="page__bd">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+</view>

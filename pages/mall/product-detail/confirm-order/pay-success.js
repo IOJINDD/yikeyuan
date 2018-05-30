@@ -12,7 +12,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(wx.getStorageSync('systemInfo'))
+    this.setData({
+      windowHeight: wx.getStorageSync('systemInfo').windowHeight,
+    })
   },
 
   /**
@@ -61,6 +64,31 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
-  }
+    return {
+      title: '这个商品很棒哦，一起来参团吧',
+      path: `pages/mall/product-detail/product-detail?id=${wx.getStorageSync('itemDetail').id}`,
+      imageUrl: wx.getStorageSync('itemDetail').imgUrls[0],
+      success: (res) => {
+        console.log(res)
+      }
+    }
+  },
+
+  /**
+   * 继续购买
+   */
+  goBuy: function () {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
+  },
+
+  /**
+   * 前往个人中心
+   */
+  goSelf: function () {
+    wx.switchTab({
+      url: '/pages/my-info/my-info'
+    })
+  },
 })

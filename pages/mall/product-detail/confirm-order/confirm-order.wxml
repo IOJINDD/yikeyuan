@@ -1,6 +1,6 @@
 <!--pages/index/video-detail/confirm-order/confirm-order.wxml-->
 <view class="confirm-order" style="height: {{ windowHeight }}px">
-    <!-- <image src="{{ detailImg[0] }}" style="width: 100%; height: 585px" />   -->
+  <!-- <image src="{{ detailImg[0] }}" style="width: 100%; height: 585px" />   -->
 
   <!-- <view class="firstBody" wx:if="{{ itemDetail.expressFlag == 1 }}">
     <view class="weui-cell">
@@ -17,7 +17,7 @@
   <view class="firstBody" bindtap="getAddress">
     <view url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
       <view class="weui-media-box__hd weui-media-box__hd_in-location">
-        <image class="weui-media-box__thumb" src="{{ locationImg }}" style="width: 80rpx; height: 80rpx;"/>
+        <image class="weui-media-box__thumb" src="{{ locationImg }}" style="width: 80rpx; height: 80rpx;" />
       </view>
       <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
         <view class="title" hidden="{{ receiveAddress.userName }}">请选择您的收货地址</view>
@@ -40,8 +40,9 @@
       </view>
       <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
         <view class="title">{{ itemDetail.title }}</view>
-        <view class="price"> 
-          <span style="color: #000">{{ buyType  }} </span> <span style="font-size: 24rpx">￥</span>{{ price }}
+        <view class="price">
+          <span style="color: #000">{{ buyType }} </span>
+          <span style="font-size: 24rpx">￥</span>{{ price }}
         </view>
       </view>
     </navigator>
@@ -49,33 +50,53 @@
 
   <view class="weui-cells__title">选择数量</view>
   <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-              <view class="weui-label">购买数量</view>
-          </view>
-          <view class="weui-cell__bd">
-            <image src="{{ addIcon2 }}" bindtap="addNumber"/>
-            <input class="number" value="{{ goodsNumber }}" type="number" bindinput="eventNumber"/>
-            <image src="{{ reduceIcon }}" hidden="{{ !reduceDis }}"/>
-            <image src="{{ reduceIcon2 }}" bindtap="reduceNumber" hidden="{{ reduceDis }}"/>
-          </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">购买数量</view>
       </view>
+      <view class="weui-cell__bd">
+        <image src="{{ addIcon2 }}" bindtap="addNumber" />
+        <input class="number" value="{{ goodsNumber }}" type="number" bindinput="eventNumber" />
+        <image src="{{ reduceIcon }}" hidden="{{ !reduceDis }}" />
+        <image src="{{ reduceIcon2 }}" bindtap="reduceNumber" hidden="{{ reduceDis }}" />
+      </view>
+    </view>
   </view>
 
   <view class="weui-cells__title">选填</view>
   <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-          <view class="weui-cell__hd">
-              <view class="weui-label">备注</view>
-          </view>
-          <view class="weui-cell__bd">
-            <input value="{{ remark }}" bindinput="eventRemark" placeholder="填写备注信息"/>
-          </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">备注</view>
       </view>
+      <view class="weui-cell__bd">
+        <input value="{{ remark }}" bindinput="eventRemark" placeholder="填写备注信息" />
+      </view>
+    </view>
   </view>
 
-   <view class="bottom">
-     <span class="bottomPrice"> <span style="font-size: 24rpx">￥</span> {{ price * goodsNumber }} </span>
-     <span class="bottomBtn" bindtap="goPay"> 确认支付 </span>
+  
+  <view class="bottom">
+    <span class="bottomPrice">
+      <span style="font-size: 24rpx">￥</span> {{ price * goodsNumber }} </span>
+      <span class="bottomBtn" bindtap="goPay" wx:if="{{ hasUserInfo }}"> 确认支付 </span> 
+      <button class="bottomBtn" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" wx:if="{{ !hasUserInfo }}">
+      确认支付
+    </button>
+    <!-- <button style="background-color: #35c590; color: #fff" bindtap="goPay" wx:if="{{ hasUserInfo }}">
+      立即支付
+    </button>
+    <button style="background-color: #35c590; color: #fff" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" wx:if="{{ !hasUserInfo }}">
+      立即支付
+    </button> -->
   </view>
+
+  <!-- <view class="bottom">
+    <button style="background-color: #35c590; color: #fff" bindtap="goPay" wx:if="{{ hasUserInfo }}">
+      立即支付
+    </button>
+    <button style="background-color: #35c590; color: #fff" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo" wx:if="{{ !hasUserInfo }}">
+      立即支付
+    </button>
+  </view> -->
 </view>

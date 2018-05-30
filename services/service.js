@@ -269,7 +269,7 @@ function getOrderDetail(params) {
 function getArticlesList (params) {
   return new Promise((resolve, reject) => {
     wx.request({
-      url: api.devApiHost + uris.getArticlesList + '?keyword=' + params.keyword + '&pageNo=' + params.pageNo + '&pageSize=' + params.pageSize,
+      url: api.devApiHost + uris.getArticlesList + '?keyword=' + params.keyword + '&pageNo=' + params.pageNo + '&pageSize=' + params.pageSize + '&type=' + params.type + '&delFlag=0',
       method: 'GET',
       header: {
         Authorization: wx.getStorageSync('authorization')

@@ -1,52 +1,51 @@
 <!--index.wxml-->
 <wxs module="getDate" src="../../common/filter/statusFr.wxs"></wxs>
 <view class="container index">
-  <swiper indicator-dots="true" autoplay="true" interval="4000" style="width: {{ windowWidth }}px">
-    <block wx:for="{{ imgUrls }}">
+  <swiper indicator-dots="true" autoplay="true" interval="4000" style="width: {{ windowWidth }}px; height: {{ windowWidth - 150 }}px">
+    <block wx:for="{{ imgUrls }}" wx:key="{{ index }}">
       <swiper-item>
-        <image src="{{ item }}" style="width: {{ windowWidth }}px"/>
+        <image src="{{ item || defaultImg }}" mode="aspectFit" style="width: {{ windowWidth }}px; height: {{ windowWidth - 150 }}px" bindtap="previewImage" data-index="{{ index }}" />
       </swiper-item>
     </block>
   </swiper>
-  <swiper indicator-dots="true" autoplay="{{autoplay}}" style="width: {{ windowWidth }}px; height: 200rpx" class="swiper">
-    <swiper-item>
-      <view class="weui-flex">
-          <view class="weui-flex__item text-center" bindtap="goSearch" data-index="all">
-            <image src="{{ imgAll }}" style="width: 30px; height: 30px"/>
-            <view class="placeholder">全部</view>
-          </view>
-          <view class="weui-flex__item text-center" wx:for="{{ categories }}" wx:if="{{ index < 4 }}" bindtap="goSearch" data-index="{{ index }}">
-            <image src="{{ item.iconUrl }}" style="width: 30px; height: 30px"/>
-            <view class="placeholder">{{ item.name }}</view>
-          </view>
+
+   <view class="tabBody">
+    <view class="weui-flex">
+      <view class="weui-flex__item text-center" wx:for="{{ categories }}" wx:key="{{ index }}" wx:if="{{ index < 4 }}" bindtap="goSearch" data-index="{{ index }}">
+        <image src="{{ item.iconUrl }}" style="width: 30px; height: 30px" />
+        <view class="placeholder">{{ item.name }}</view>
       </view>
-    </swiper-item>
-    <swiper-item>
-      <view class="weui-flex">
-          <view class="weui-flex__item text-center" wx:for="{{ categories }}" wx:if="{{ index > 3 }}" bindtap="goSearch" data-index="{{ index }}">
-            <image src="{{ item.iconUrl }}" style="width: 30px; height: 30px"/>
-            <view class="placeholder">{{ item.name }}</view>
-          </view>
-      </view>
-    </swiper-item>
-  </swiper> 
-  <view class="videoBody" bindtap="goDetail" wx:for="{{ dataBody }}" data-id="{{ item.id }}">
+    </view>
+  </view> 
+
+   <!-- <view class="videoBody" bindtap="goDetail" wx:for="{{ dataBody }}" wx:key="{{ index }}" data-id="{{ item.id }}">
     <image src="{{ item.picUrl }}" style="width: 100%; height: 200px" />
     <view class="title">
       {{ item.title }}
     </view>
-     <view class="subTitle">
+    <view class="subTitle">
       {{ item.content }}
     </view>
-    <!-- <view class="time">
-     <image src="{{ timeIcon }}"/>
-     <span> {{ getDate.getDate(item.createTime) }}</span> 
-    </view>   -->
-     <view class="labelDetail">
-       <!-- <span class="number">5人团</span> -->
-       <span class="price">￥ <em>{{ item.itemPrice / 100 }}</em> </span>
-       <span class="label" wx:for="{{ item.tagList }}" wx:for-item="j" wx:for-index="i" wx:if="{{ i < 2}}">{{ j }}</span>
-       <!-- <span class="buyBtn">去购买</span>   -->
-     </view> 
+    <view class="labelDetail">
+      <span class="price">￥
+        <em>{{ item.itemPrice / 100 }}</em>
+      </span>
+      <span class="label" wx:for="{{ item.tagList }}" wx:for-item="j" wx:for-index="i" wx:key="{{ index }}" wx:if="{{ i < 2}}">{{ j }}</span>
+    </view>
+  </view>  -->
+
+  <view class="weui-panel weui-panel_access" style="width: 100%;overflow:initial">
+    <view class="weui-panel__hd">艺客圈资讯</view>
+    <view class="weui-panel__bd" wx:for="{{ dataBody }}">
+        <view class="weui-media-box weui-media-box_appmsg" bindtap="goDetail" data-id="{{ item.id }}">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{ item.coverUrl || defaultImg }}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">{{ item.title }}</view>
+                <view class="weui-media-box__desc">{{ getDate.getDate(item.createTime) }}</view>
+            </view>
+        </view>
+    </view>
   </view>
 </view>
