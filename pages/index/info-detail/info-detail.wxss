@@ -1,7 +1,7 @@
 /* pages/index/info-detail/info-detail.wxss */
 .infoDetail {
   background-color: #fff;
-  padding: 40rpx;
+  padding: 10px 40rpx;
 }
 .page__desc {
   color:#999;
@@ -13,4 +13,26 @@
 }
 video {
   width: 100%;
+}
+
+.dataBody {
+  height: 150px; 
+  position: relative;
+}
+.dataBody_title {
+  position:absolute;
+  top:10px;
+  left:15px;
+  color:#fff;
+  font-size:32rpx;
+}
+.dataBody_subTitle {
+  margin-top: 6px;
+  top:20px;
+  left:15px;
+  color:#fff;
+  font-size:24rpx 
+}
+label {
+  display: block;
 }

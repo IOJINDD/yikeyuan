@@ -15,9 +15,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    console.log('options', options)
+    wx.setNavigationBarTitle({
+      title: '资讯详情',
+    })
+
+    let id = 1
+    if (options && options.q) {
+      id = options.q.split('id%3D')[1]
+    } else {
+      id = options.id
+    }
+
+    // 获取id
     getArticleDetail.bind(this)({
-      id: options.id
+      id: id
     }).then(res => {
       this.setData({
         detail: res.dataBody
@@ -29,14 +41,16 @@ Page({
         })
       }
     })
-    this.videoContext = wx.createVideoContext('myVideo')
+    this.videoContext = wx.createVideoContext('myVideo')  
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    this.setData({
+      windowWidth: wx.getStorageSync('systemInfo').windowWidth
+    })
   },
 
   /**

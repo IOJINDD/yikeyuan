@@ -26,7 +26,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "扫码查看详情",
+					"pathName": "pages/index/info-detail/info-detail",
+					"query": "id=1",
+					"scene": "1011"
+				}
+			]
 		}
 	}
 }

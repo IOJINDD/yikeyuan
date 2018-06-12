@@ -54,7 +54,29 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    wx.stopPullDownRefresh()
+    wx.showLoading({
+      title: '加载中...',
+    })
+
+    // 获取商品信息
+    getPitem.bind(this)({
+      categoryFk: this.data.categoryFk,
+      pageNo: 1,
+      pageSize: 5
+    }).then(res => {
+      let data = []
+      res.dataBody.data.forEach((item) => {
+        data.push(item)
+      })
+      this.setData({
+        dataBody: data
+      })
+
+      // 完成停止加载
+      wx.hideNavigationBarLoading()
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**

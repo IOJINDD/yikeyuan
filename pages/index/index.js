@@ -9,6 +9,7 @@ Page({
     autoplay: false,
     defaultImg: '/common/assets/images/default.jpeg',
     imgAll: '/common/assets/images/all.svg',
+    ads: [],
     page: {
       pageNo: 1,
       pageSize: 5
@@ -26,10 +27,15 @@ Page({
       name: '商城',
       iconUrl: '/common/assets/images/mall.png'
     }],
+    windowWidth: 375,
     dataBody: []
   },
   onLoad: function () {
 
+    // console.log(wx.getStorageSync('systemInfo'))
+    this.setData({
+      windowWidth: wx.getStorageSync('systemInfo').windowWidth
+    })
     // 获取轮播
     getAds.bind(this)().then(res => {
       let imgUrls = []
@@ -37,7 +43,8 @@ Page({
         imgUrls.push(item.url)
       })
       this.setData({
-        imgUrls: imgUrls
+        imgUrls: imgUrls,
+        ads: res.dataBody
       })
     })
 
@@ -85,8 +92,8 @@ Page({
     })
 
     getArticlesList.bind(this)({
-      pageNo: this.data.page.pageNo,
-      pageSize: this.data.page.pageSize,
+      pageNo: 1,
+      pageSize: 3,
       keyword: this.data.keyword
     }).then(res => {
       let data = this.data.dataBody
@@ -104,17 +111,60 @@ Page({
   },
 
   /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    console.log('1111')
+    wx.showLoading({
+      title: '加载中...',
+    })
+
+    // 获取轮播
+    getAds.bind(this)().then(res => {
+      let imgUrls = []
+      res.dataBody.forEach((item, index) => {
+        imgUrls.push(item.url)
+      })
+      this.setData({
+        imgUrls: imgUrls,
+        ads: res.dataBody
+      })
+    })
+
+    getArticlesList.bind(this)({
+      pageNo: 1,
+      pageSize: 3,
+      keyword: this.data.keyword
+    }).then(res => {
+      console.log(res)
+      let data = []
+      res.dataBody.data.forEach((item, index) => {
+        data.push(item)
+      })
+      this.setData({
+        dataBody: data
+      })
+
+      // 完成停止加载
+      wx.hideNavigationBarLoading()
+      wx.hideLoading()
+      wx.stopPullDownRefresh()
+    })
+  },
+
+  /**
    * 上拉刷新
    */
   onReachBottom: function () {
-    let pageNo = this.data.page.pageNo + 1
-    this.setData({
-      page: {
-        pageNo: pageNo,
-        pageSize: 5
-      }
-    })
-    this.getList()
+    console.log('2222')
+    // let pageNo = this.data.page.pageNo + 1
+    // this.setData({
+    //   page: {
+    //     pageNo: pageNo,
+    //     pageSize: 5
+    //   }
+    // })
+    // this.getList()
   },
 
   /**
@@ -137,10 +187,21 @@ Page({
    * 查看大图
    */
   previewImage: function (e) {
-    console.log(e.currentTarget.dataset.index)
-    wx.previewImage({
-      current: this.data.imgUrls[e.currentTarget.dataset.index], // 当前显示图片的http链接
-      urls: this.data.imgUrls // 需要预览的图片http链接列表
-    })
+    console.log(e)
+    // console.log(e.currentTarget.dataset.index)
+    // wx.previewImage({
+    //   current: this.data.imgUrls[e.currentTarget.dataset.index], // 当前显示图片的http链接
+    //   urls: this.data.imgUrls // 需要预览的图片http链接列表
+    // })
+    // 判断跳转至资讯还是商品
+    if (this.data.ads[e.currentTarget.dataset.index].linkType == 0) {
+      wx.navigateTo({
+        url: `./info-detail/info-detail?id=${this.data.ads[e.currentTarget.dataset.index].linkFk}` ,
+      })
+    } else if (this.data.ads[e.currentTarget.dataset.index].linkType == 1) {
+      wx.navigateTo({
+        url: `/pages/mall/product-detail/product-detail?id=${this.data.ads[e.currentTarget.dataset.index].linkFk}`,
+      })
+    }
   }
 })

@@ -10,6 +10,7 @@ Page({
       pageNo: 1,
       pageSize: 5
     },
+    defaultImg: '/common/assets/images/default.jpeg',
     categories: [{
       name: '精彩活动'
     }, {
@@ -17,6 +18,7 @@ Page({
     }, {
       name: '课外教育'
     }],
+    windowWidth: 375,
     dataBody: []
   },
 
@@ -24,9 +26,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     this.getList(options.index)
     this.setData({
-      activitedIndex: options.index
+      activitedIndex: options.index,
+      windowWidth: wx.getStorageSync('systemInfo').windowWidth
     })
   },
 
