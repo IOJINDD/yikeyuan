@@ -2,6 +2,7 @@
 .infoDetail {
   background-color: #fff;
   padding: 10px 40rpx;
+  min-height: 300px;
 }
 .page__desc {
   color:#999;
@@ -24,14 +25,15 @@ video {
   top:10px;
   left:15px;
   color:#fff;
-  font-size:32rpx;
+  font-weight: 300;
+  font-size:34rpx;
 }
 .dataBody_subTitle {
   margin-top: 6px;
   top:20px;
   left:15px;
   color:#fff;
-  font-size:24rpx 
+  font-size:26rpx 
 }
 label {
   display: block;
