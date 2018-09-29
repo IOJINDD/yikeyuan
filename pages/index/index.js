@@ -21,11 +21,8 @@ Page({
       name: '名校探秘',
       iconUrl: '/common/assets/images/school.png'
     }, {
-      name: '课外教育',
+      name: '素质教育',
       iconUrl: '/common/assets/images/education.png'
-    }, {
-      name: '商城',
-      iconUrl: '/common/assets/images/mall.png'
     }],
     windowWidth: 375,
     dataBody: []

@@ -23,7 +23,7 @@
     </navigator>
   </view>
 
-  <view class="weui-cells weui-cells_after-title">
+  <!-- <view class="weui-cells weui-cells_after-title">
     <navigator url="./my-order/my-order" class="weui-cell" hover-class="weui-cell_active">
       <view class="weui-cell__hd">
         <image src="{{ orderIcon }}" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image>
@@ -31,9 +31,9 @@
       <view class="weui-cell__bd">我的订单</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
-  </view>
+  </view> -->
 
-  <view class="weui-cells weui-cells_after-title">
+  <!-- <view class="weui-cells weui-cells_after-title">
     <navigator url="./my-video/video-list/video-list" class="weui-cell" hover-class="weui-cell_active">
       <view class="weui-cell__hd">
         <image src="{{ videoIcon }}" style="margin-right: 5px;vertical-align: middle;width:25px; height: 25px;"></image>
@@ -41,5 +41,5 @@
       <view class="weui-cell__bd">我的视频</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
-  </view>
+  </view> -->
 </view>

@@ -35,12 +35,6 @@
         "text": "资讯"
       },
       {
-        "pagePath": "pages/mall/mall",
-        "iconPath": "common/assets/tab/shopping.png",
-        "selectedIconPath": "common/assets/tab/shopping2.png",
-        "text": "商城"
-      },
-      {
         "pagePath": "pages/my-info/my-info",
         "iconPath": "common/assets/tab/self.png",
         "selectedIconPath": "common/assets/tab/self2.png",

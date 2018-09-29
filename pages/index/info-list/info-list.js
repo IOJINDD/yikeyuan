@@ -16,7 +16,7 @@ Page({
     }, {
       name: '名校探秘'
     }, {
-      name: '课外教育'
+      name: '素质教育'
     }],
     windowWidth: 375,
     dataBody: []
